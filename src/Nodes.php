@@ -1459,6 +1459,11 @@ class Nodes
 		return Request::Request("/nodes/$node/config");
 	}
 
+	static function Status($node)
+	{
+		return Request::Request("/nodes/$node/status");
+	}
+
 	/**
     * Update snapshot metadata.
     * PUT /api2/json/nodes/{node}/qemu/{vmid}/snapshot/{snapname}/config
