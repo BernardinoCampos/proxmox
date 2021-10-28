@@ -1130,6 +1130,11 @@ class Nodes
 		return Request::Request("/nodes/$node/qemu/$vmid/config");
 	}
 
+	static function QemuVmidNetwork($node, $vmid)
+	{
+		return Request::Request("/nodes/$node/qemu/$vmid/agent/network-get-interfaces");
+	}
+
   /**
     * Destroy the vm (also delete all used/owned volumes)
     * DELETE /api2/json/nodes/{node}/qemu/{vmid}
