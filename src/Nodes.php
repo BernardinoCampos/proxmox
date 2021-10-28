@@ -16,7 +16,7 @@ class Nodes
     * Cluster node index.
     * GET /api2/json/nodes
   */
-  public function listNodes()
+  static public function listNodes()
   {
       return Request::Request("/nodes");
   }
@@ -25,7 +25,7 @@ class Nodes
     * GET /api2/json/nodes/{node}/apt
     * @param string   $node     The cluster node name.
   */
-  public function Apt($node)
+  static public function Apt($node)
   {
       return Request::Request("/nodes/$node/apt");
   }
@@ -35,7 +35,7 @@ class Nodes
     * @param string   $node     The cluster node name.
     * @param array    $data
   */
-  public function updateApt($node, $data = array())
+  static public function updateApt($node, $data = array())
   {
       return Request::Request("/nodes/$node/apt/update", $data, "POST");
   }
@@ -45,7 +45,7 @@ class Nodes
     * @param string   $node     The cluster node name.
     * @param string   $name     Package name.
   */
-  public function AptChangelog($node, $name = null)
+  static public function AptChangelog($node, $name = null)
   {
       $optional['name'] = !empty($name) ? $name : null;
       return Request::Request("/nodes/$node/apt/changelog", $optional);
@@ -55,7 +55,7 @@ class Nodes
     * GET /api2/json/nodes/{node}/apt/update
     * @param string   $node     The cluster node name.
   */
-  public function AptUpdate($node)
+  static public function AptUpdate($node)
   {
       return Request::Request("/nodes/$node/apt/update");
   }
@@ -65,7 +65,7 @@ class Nodes
     * @param string   $node     The cluster node name.
     * @param array    $data
   */
-  public function createAptUpdate($node, $data = array())
+  static public function createAptUpdate($node, $data = array())
   {
       return Request::Request("/nodes/$node/apt/update", $data, "POST");
   }
@@ -74,7 +74,7 @@ class Nodes
     * GET /api2/json/nodes/{node}/ceph
     * @param string   $node     The cluster node name.
   */
-  public function Ceph($node)
+  static public function Ceph($node)
   {
       return Request::Request("/nodes/$node/ceph");
   }
@@ -83,7 +83,7 @@ class Nodes
     * GET /api2/json/nodes/{node}/ceph/flags
     * @param string   $node     The cluster node name.
   */
-  public function CephFlags($node)
+  static public function CephFlags($node)
   {
       return Request::Request("/nodes/$node/ceph/flags");
   }
@@ -94,7 +94,7 @@ class Nodes
     * @param enum     $flag     The ceph flag to set/unset
     * @param array    $data
   */
-  public function setCephFlags($node, $flag, $data = array())
+  static public function setCephFlags($node, $flag, $data = array())
   {
       return Request::Request("/nodes/$node/ceph/flags/$flag", $data, "POST");
   }
@@ -104,7 +104,7 @@ class Nodes
     * @param string   $node     The cluster node name.
     * @param enum     $flag     The ceph flag to set/unset
   */
-  public function unsetCephFlags($node, $flag)
+  static public function unsetCephFlags($node, $flag)
   {
       return Request::Request("/nodes/$node/ceph/flags/$flag", null, "DELETE");
   }
@@ -114,7 +114,7 @@ class Nodes
     * @param string   $node     The cluster node name.
     * @param array    $data
   */
-  public function createCephMgr($node, $data = array())
+  static public function createCephMgr($node, $data = array())
   {
       return Request::Request("/nodes/$node/ceph/mgr", $data, "POST");
   }
@@ -124,7 +124,7 @@ class Nodes
     * @param string   $node     The cluster node name.
     * @param string   $id       The ID of the manager
   */
-  public function destroyCephMgr($node, $id)
+  static public function destroyCephMgr($node, $id)
   {
       return Request::Request("/nodes/$node/ceph/mgr/$id", null, "DELETE");
   }
@@ -133,7 +133,7 @@ class Nodes
     * GET /api2/json/nodes/{node}/ceph/mon
     * @param string   $node     The cluster node name.
   */
-  public function CephMon($node)
+  static public function CephMon($node)
   {
       return Request::Request("/nodes/$node/ceph/mon");
   }
@@ -143,7 +143,7 @@ class Nodes
     * @param string   $node     The cluster node name.
     * @param array    $data
   */
-  public function createCephMon($node, $data = array())
+  static public function createCephMon($node, $data = array())
   {
       return Request::Request("/nodes/$node/ceph/mon", $data, "POST");
   }
@@ -153,7 +153,7 @@ class Nodes
     * @param string   $node     The cluster node name.
     * @param string   $monid    Monitor ID
   */
-  public function destroyCephMon($node, $monid)
+  static public function destroyCephMon($node, $monid)
   {
       return Request::Request("/nodes/$node/ceph/mgr/$monid", null, "DELETE");
   }
@@ -162,7 +162,7 @@ class Nodes
     * GET /api2/json/nodes/{node}/ceph/osd
     * @param string   $node     The cluster node name.
   */
-  public function CephOsd($node)
+  static public function CephOsd($node)
   {
       return Request::Request("/nodes/$node/ceph/osd");
   }
@@ -172,7 +172,7 @@ class Nodes
     * @param string   $node     The cluster node name.
     * @param array    $data
   */
-  public function createCephOsd($node, $data = array())
+  static public function createCephOsd($node, $data = array())
   {
       return Request::Request("/nodes/$node/ceph/osd", $data, "POST");
   }
