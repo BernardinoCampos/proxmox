@@ -1124,6 +1124,12 @@ class Nodes
   {
       return Request::Request("/nodes/$node/qemu/$vmid");
   }
+
+	static function QemuVmidConfig($node, $vmid)
+	{
+		return Request::Request("/nodes/$node/qemu/$vmid/config");
+	}
+
   /**
     * Destroy the vm (also delete all used/owned volumes)
     * DELETE /api2/json/nodes/{node}/qemu/{vmid}
