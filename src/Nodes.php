@@ -1449,6 +1449,11 @@ class Nodes
 		return Request::Request("/nodes/$node/hardware");
 	}
 
+	static function Pci($node)
+	{
+		return Request::Request("/nodes/$node/hardware/pci");
+	}
+
   /**
     * Update snapshot metadata.
     * PUT /api2/json/nodes/{node}/qemu/{vmid}/snapshot/{snapname}/config
