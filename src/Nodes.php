@@ -1454,7 +1454,12 @@ class Nodes
 		return Request::Request("/nodes/$node/hardware/pci");
 	}
 
-  /**
+	static function Config($node)
+	{
+		return Request::Request("/nodes/$node/config");
+	}
+
+	/**
     * Update snapshot metadata.
     * PUT /api2/json/nodes/{node}/qemu/{vmid}/snapshot/{snapname}/config
     * @param string   $node    The cluster node name.
