@@ -1443,6 +1443,12 @@ class Nodes
   {
       return Request::Request("/nodes/$node/qemu/$vmid/snapshot/$snapname/config");
   }
+
+	static function Hardware($node)
+	{
+		return Request::Request("/nodes/$node/hardware");
+	}
+
   /**
     * Update snapshot metadata.
     * PUT /api2/json/nodes/{node}/qemu/{vmid}/snapshot/{snapname}/config
