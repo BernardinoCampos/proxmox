@@ -2311,10 +2311,12 @@ class Nodes
     * GET /api2/json/nodes/{node}/rrddata
     * @param string   $node         The cluster node name.
     * @param enum     $timeframe    Specify the time frame you are interested in.
+    * @param enum     $cf    		Specify the rrd consolidation (AVERAGE|MAX).
   */
-  static function Rrddata($node, $timeframe = null)
+  static function Rrddata($node, $timeframe = null, $cf = null)
   {
       $optional['timeframe'] = !empty($timeframe) ? $timeframe : null;
+	  $optional['cf'] = !empty($cf) ? $cf : null;
       return Request::Request("/nodes/$node/rrddata", $optional);
   }
   /**
